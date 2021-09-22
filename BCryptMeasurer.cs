@@ -5,14 +5,14 @@ namespace BCryptWorkFactorTest
 {
     class BCryptMeasurer
     {
-        public void MeasureWorkFactorTimes(int minWorkFactor, TimeSpan maxDuration)
+        public void MeasureWorkFactorTimes(string password, int minWorkFactor, TimeSpan maxDuration)
         {
             int currentWorkFactor = minWorkFactor;
             while (true)
             {
                 var sw = new Stopwatch();
                 sw.Start();
-                BCrypt.Net.BCrypt.HashPassword("BCryptWorkFactorTest", currentWorkFactor);
+                BCrypt.Net.BCrypt.HashPassword(password, currentWorkFactor);
                 sw.Stop();
 
                 Console.WriteLine($"Work factor {currentWorkFactor}:\t{sw.Elapsed.TotalMilliseconds} ms");

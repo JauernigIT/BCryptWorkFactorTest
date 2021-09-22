@@ -15,6 +15,9 @@ namespace BCryptWorkFactorTest
             Console.WriteLine($"- max duration: {maxDuration.TotalMilliseconds} ms\n");
 
             new BCryptMeasurer().MeasureWorkFactorTimes("BCryptWorkFactorTest-Password", minWorkFactor, maxDuration);
+
+            Console.WriteLine("\nDone... press any key to exit.");
+            Console.ReadKey();
         }
     }
 }

@@ -7,6 +7,9 @@ namespace BCryptWorkFactorTest
     {
         public void MeasureWorkFactorTimes(string password, int minWorkFactor, TimeSpan maxDuration)
         {
+            // dummy dry run to initialize BCrypt internals
+            BCrypt.Net.BCrypt.HashPassword("dry-run", 4);
+
             int currentWorkFactor = minWorkFactor;
             while (true)
             {
